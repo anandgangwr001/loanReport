@@ -31,6 +31,10 @@ app.config(['$routeProvider', function ($routeProvider) {
             templateUrl: "views/dashboard.html",
             controller: "dashboardCtrl"
         })
+        .when("/about", {
+            templateUrl: "views/about.html",
+            controller: "aboutCtrl"
+        })
         .otherwise({
             templateUrl: "views/landingPage/login.html",
             controller: "loginCtrl"
