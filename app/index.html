@@ -1,0 +1,91 @@
+<!doctype html>
+<html ng-app="loanreportApp">
+
+<head>
+  <meta charset="utf-8">
+  <title>Loan-Report</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../bower_components/angular-block-ui/dist/angular-block-ui.min.css">
+    <link rel="stylesheet" href="../bower_components/angular-toastr/dist/angular-toastr.css" />
+    <link rel="stylesheet" href="js/ngExDialog/ngExDialog.css" />
+    <link rel="stylesheet" href="../bower_components/chosen/chosen.min.css"> -->
+  <link rel="stylesheet" type="text/css" href="styles/vendor/bootstrap/css/bootstrap.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="styles/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="styles/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="styles/vendor/animate/animate.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="styles/vendor/css-hamburgers/hamburgers.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="styles/vendor/animsition/css/animsition.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="styles/vendor/select2/select2.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="styles/vendor/daterangepicker/daterangepicker.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="styles/css/util.css">
+  <link rel="stylesheet" type="text/css" href="styles/css/main.css">
+  <link rel="stylesheet" type="text/css" href="styles/css/dashboard.css">
+  <link rel="stylesheet" type="text/css" href="styles/css/navigation.css">
+  <!--===============================================================================================-->
+
+
+  <!--===============================================================================================-->
+  <script src="styles/vendor/jquery/jquery-3.2.1.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="styles/vendor/animsition/js/animsition.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="styles/vendor/bootstrap/js/popper.js"></script>
+  <script src="styles/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="styles/vendor/select2/select2.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="styles/vendor/daterangepicker/moment.min.js"></script>
+  <script src="styles/vendor/daterangepicker/daterangepicker.js"></script>
+  <!--===============================================================================================-->
+  <script src="styles/vendor/countdowntime/countdowntime.js"></script>
+</head>
+
+<body>
+  <!-- <link rel="stylesheet" href="styles/css/default.min.css"> -->
+  <div>
+    <div class="hold-transition skin-black sidebar-mini">
+      <!-- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <span> The browser you are using is too old and the application may not work properly. Kindly update your
+                browser for the application to work properly.</span> -->
+    </div>
+    <div class="">
+      <div ng-if="ShowHeaderMenu" ng-include="'views/index/menu.html'"></div>
+      <div></div>
+      <div ng-view></div>
+    </div>
+  </div>
+  <!-- bower:js -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-touch/angular-touch.js"></script>
+  <!-- endbower -->
+  <!-- Controllers-->
+
+  <!-- <script src="js/ngExDialog/ngExDialog.js"></script> -->
+  <script src="app.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> -->
+
+  <script src="scripts/landingPage/login.controller.js"></script>
+  <script src="scripts/landingPage/register.controller.js"></script>
+  <script src="scripts/landingPage/forgetpassword.controller.js"></script>
+  <script src="scripts/dashboard.controller.js"></script>
+
+  <!-- End Controllers-->
+
+</body>
+
+</html>
