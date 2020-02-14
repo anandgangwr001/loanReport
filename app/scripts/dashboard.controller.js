@@ -1,7 +1,4 @@
-app.controller("dashboardCtrl", function ($scope, $rootScope) {
-
-    console.log("dashboard control loaded");
+app.controller("dashboardCtrl", function ($scope) {
     $scope.$parent.ShowHeaderMenu = true;
-   
 });
 

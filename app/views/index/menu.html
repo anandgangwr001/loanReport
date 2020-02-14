@@ -1,12 +1,24 @@
 <header>
-  <a href="#home" class="logo" data-scroll>Fixed Nav</a>
+  <span class="logo" data-scroll>Fixed Nav</span>
   <nav class="nav-collapse">
     <ul>
-      <li class="menu-item active"><a href="#home" data-scroll>Home</a></li>
-      <li class="menu-item"><a href="#about" data-scroll>About</a></li>
-      <li class="menu-item"><a href="#projects" data-scroll>Projects</a></li>
-      <li class="menu-item"><a href="#blog" data-scroll>Blog</a></li>
-      <li class="menu-item"><a href="http://www.google.com" target="_blank">Google</a></li>
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Personal</a>
+        <div class="dropdown-content">
+          <a href="#/accepted">Accepted</a>
+          <a href="#/rejected">Rejected</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Business</a>
+        <div class="dropdown-content">
+          <a href="#/acceptedBusiness">Accepted</a>
+          <a href="#/rejectedBusiness">Rejected</a>
+        </div>
+      </li>
+      <!-- <li class="list-item"><a href="#/about" data-scroll>Business</a></li>-->
+      <li class="list-item"><a href="#nosubmit" data-scroll>No Submit</a></li> 
+      <li class="list-item"><a href="#logout" data-scroll>Logout</a></li>
     </ul>
   </nav>
 </header>
