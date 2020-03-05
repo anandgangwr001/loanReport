@@ -15,9 +15,19 @@ app.config(['$routeProvider', function ($routeProvider) {
             templateUrl: "views/landingPage/login.html",
             controller: "loginCtrl",
         })
+<<<<<<< Updated upstream
         .when("/login", {
             templateUrl: "views/landingPage/login.html",
             controller: "loginCtrl"
+=======
+        .when("/dashboard", {
+            templateUrl: "views/dashboard.html",
+            controller: "dashboardCtrl"
+        })
+        .when("/accepted", {
+            templateUrl: "views/personalLoan/acceptedPersonalLoan.html",
+            controller: "acceptedPersonalLoanCtrl"
+>>>>>>> Stashed changes
         })
         .when("/register", {
             templateUrl: "views/landingPage/register.html",
