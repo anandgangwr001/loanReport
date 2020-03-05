@@ -7,7 +7,6 @@ app.controller("loginCtrl", function ($scope,loginService,$window,LS,toaster) {
     }
     $scope.ClearCookies();
     $scope.user={};
-    
     $scope.doLogin = function (loginForm) {
         if (loginForm.$valid) {
             loginService.loginFunction($scope.user).then(function (response) {

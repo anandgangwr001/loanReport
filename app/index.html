@@ -1,13 +1,11 @@
+<!doctype html>
 <html ng-app="loanreportApp">
+
+<head>
   <meta charset="utf-8">
   <title>Loan-Report</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
-  <!-- <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="../bower_components/angular-block-ui/dist/angular-block-ui.min.css">
-    <link rel="stylesheet" href="../bower_components/angular-toastr/dist/angular-toastr.css" />
-    <link rel="stylesheet" href="js/ngExDialog/ngExDialog.css" />
-    <link rel="stylesheet" href="../bower_components/chosen/chosen.min.css"> -->
   <link rel="stylesheet" type="text/css" href="styles/vendor/bootstrap/css/bootstrap.min.css">
   <!--===============================================================================================-->
   <link rel="stylesheet" type="text/css" href="styles/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -28,27 +26,28 @@
   <link rel="stylesheet" type="text/css" href="styles/css/main.css">
   <link rel="stylesheet" type="text/css" href="styles/css/dashboard.css">
   <link rel="stylesheet" type="text/css" href="styles/css/navigation.css">
+  <link rel="stylesheet" type="text/css" href="styles/toastr.css">
+  <link href="styles/toastr.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="styles/css/pagination.css">
+  <link rel="stylesheet" type="text/css" href="styles/css/searchbox.css">
   <!--===============================================================================================-->
-
-
+  <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
   <!--===============================================================================================-->
-  <script src="styles/vendor/jquery/jquery-3.2.1.min.js"></script>
+  <!-- <script src="styles/vendor/jquery/jquery-3.2.1.min.js"></script> -->
   <!--===============================================================================================-->
-  <script src="styles/vendor/animsition/js/animsition.min.js"></script>
+  <!-- <script src="styles/vendor/animsition/js/animsition.min.js"></script> -->
   <!--===============================================================================================-->
-  <script src="styles/vendor/bootstrap/js/popper.js"></script>
-  <script src="styles/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <!-- <script src="styles/vendor/bootstrap/js/popper.js"></script>
+  <script src="styles/vendor/bootstrap/js/bootstrap.min.js"></script> -->
   <!--===============================================================================================-->
-  <script src="styles/vendor/select2/select2.min.js"></script>
+  <!-- <script src="styles/vendor/select2/select2.min.js"></script> -->
   <!--===============================================================================================-->
-  <script src="styles/vendor/daterangepicker/moment.min.js"></script>
-  <script src="styles/vendor/daterangepicker/daterangepicker.js"></script>
+  <!-- <script src="styles/vendor/daterangepicker/moment.min.js"></script>
+  <script src="styles/vendor/daterangepicker/daterangepicker.js"></script> -->
   <!--===============================================================================================-->
-  <script src="styles/vendor/countdowntime/countdowntime.js"></script>
-  
+  <!-- <script src="styles/vendor/countdowntime/countdowntime.js"></script> -->
   <!-- <link rel="stylesheet" href="styles/css/default.min.css"> -->
 </head>
-
 <body>
   <div>
     <div class="hold-transition skin-black sidebar-mini">
@@ -57,33 +56,49 @@
                 browser for the application to work properly.</span> -->
     </div>
     <div class="">
-      <div ng-if="ShowHeaderMenu" ng-include="'views/index/menu.html'"></div>
+      <div ng-if="ShowHeaderMenu" ng-include="'views/header/menu.html'"></div>
       <div></div>
       <div ng-view></div>
     </div>
   </div>
   <!-- bower:js -->
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-animate/angular-animate.js"></script>
-  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-  <script src="bower_components/angular-resource/angular-resource.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-  <script src="bower_components/angular-touch/angular-touch.js"></script>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script src="../bower_components/angular-animate/angular-animate.js"></script>
+  <script src="../bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="../bower_components/angular-resource/angular-resource.js"></script>
+  <script src="../bower_components/angular-route/angular-route.js"></script>
+  <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="../bower_components/angular-touch/angular-touch.js"></script>
   <!-- endbower -->
+  <script src="app.js"></script>
+  <script src="js/toastr.js"></script>
+  <script src="js/angular-webstorage.js"></script>
+  <script src="js/ngExDialog/ngExDialog.js"></script>
+  <!-- Services Start Here -->
+  <script src="services/landingPage/loginService.js"></script>
+  <script src="services/sessionService.js"></script>
+  <script src="services/personalLoan/personalLoandataservice.js"></script>
+  <script src="services/Pagination/PaginationService.js"></script>
+  <script src="services/personalLoan/getAllInvoiceService.js"></script>
+  <!-- Services End Here -->
+
   <!-- Controllers-->
 
   <!-- <script src="js/ngExDialog/ngExDialog.js"></script> -->
-  <script src="app.js"></script>
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> -->
 
   <script src="scripts/landingPage/login.controller.js"></script>
-  <script src="scripts/landingPage/register.controller.js"></script>
-  <script src="scripts/landingPage/forgetpassword.controller.js"></script>
+  <!-- <script src="scripts/landingPage/register.controller.js"></script>
+  <script src="scripts/landingPage/forgetpassword.controller.js"></script> -->
   <script src="scripts/dashboard.controller.js"></script>
-  <script src="scripts/about.controller.js"></script>
+  <script src="scripts/personalLoan/acceptedPersonalLoan.controller.js"></script>
+  <script src="scripts/personalLoan/rejectedPersonalLoan.controller.js"></script>
+  <script src="scripts/businessLoan/acceptedBusinessLoan.controller.js"></script>
+  <script src="scripts/businessLoan/rejectedBusinessLoan.controller.js"></script>
+  <script src="scripts/nosubmit/noSubmit.controller.js"></script>
+
 
   <!-- End Controllers-->
+
 </body>
 
 </html>

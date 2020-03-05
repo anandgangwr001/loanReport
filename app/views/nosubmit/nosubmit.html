@@ -1,0 +1,117 @@
+<div class="content-wrapper">
+    <section class="content">
+      <h1 class="page-header">Customer Information</h1>
+      <div class="row" id="searchBox">
+        <input type="search" class="searchbox" ng-model="searchdata" placeholder="Search Here">
+        <span class="close" ng-if="searchdata" ng-click="clearFilter()">&times;</span>
+      </div>
+      <div class="row">
+        <div>
+          <label class="label label-default">From Date</label>
+          <div class="col-md-3">
+            <input type="date" ng-model="frmDate" ng-change="fromDate()">
+          </div>
+        </div>
+        <div>
+          <label class="label label-default">To Date</label>
+          <div class="col-md-3">
+            <input type="date" ng-model="endDate" ng-change="toDate()">
+          </div>
+        </div>
+        <button ng-click="clearDateFilter()" ng-disabled="isDateReset">Reset</button>
+      </div>
+        <div class="row" ng-if="tbl">
+            <div class="col-md-12">
+            <!-- <h2 class="sub-header">Section title</h2> -->
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Gender</th>
+                <th>Date of Birth</th>
+                <th>Employement Type</th>
+                <th>Address</th>
+                <th>Pin Code</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Pan</th>
+                <th>Company Name</th>
+                <th>Monthly Salary</th>
+                <th>Total Employement</th>
+                <th>Resident Type</th>
+                <th>EMI</th>
+                <th>submitted on</th>
+                <tr ng-repeat="obj in res | filter : searchdata">
+                  <td>{{obj.firstname}}</td>
+                  <td>{{obj.lastname}}</td>
+                  <td>{{obj.email}}</td>
+                  <td>{{obj.mobile}}</td>
+                  <td>{{obj.gender}}</td>
+                  <td>{{obj.dob}}</td>
+                  <td>{{obj.emp_type}}</td>
+                  <td>{{obj.address}}</td>
+                  <td>{{obj.pin}}</td>
+                  <td>{{obj.city}}</td>
+                  <td>{{obj.state}}</td>
+                  <td>{{obj.pan}}</td>
+                  <td>{{obj.company_name}}</td>
+                  <td>{{obj.monthly_salary}}</td>
+                  <td>{{obj.total_employment}}</td>
+                  <td>{{obj.resident_type}}</td>
+                  <td>{{obj.emi}}</td>
+                  <td>{{obj.created}}</td>
+                </tr>
+              </table>
+              <div class="row">
+                <div class="col-md-12">
+                  <ul class="pageNum">
+                    <li>
+                      <div class="">
+                        <ul class="pagination">
+                          <li ng-class="{disabled:pager.currentPage === 1}">
+                            <a ng-click="setPage(1, true)">First</a>
+                          </li>
+                          <li ng-class="{disabled:pager.currentPage === 1}">
+                            <a ng-click="setPage(pager.currentPage - 1, true)"><i class="fa fa-angle-double-left"></i>
+                              Previous</a>
+                          </li>
+                          <li ng-repeat="page in pager.pages" ng-class="{active:pager.currentPage === page}">
+                            <a ng-click="setPage(page, true)">{{page}}</a>
+                          </li>
+                          <li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+                            <a ng-click="setPage(pager.currentPage + 1, true)">Next
+                              <i class="fa fa-angle-double-right"></i></a>
+                          </li>
+                          <li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+                            <a ng-click="setPage(pager.totalPages, true)">Last</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <!-- <li class="pull-right">
+                      <ul class="smartTblPagination">
+                        <li class="pull-right">
+                          Page Limit:
+                          <div class="btn-group pagination ">
+                            <button type="button" ng-class="{active:pager.pageSize == 50}" class="btn-pagination"
+                              ng-click="SetPageSize(10)">10</button>
+                            <button type="button" ng-class="{active:pager.pageSize == 100}" class="btn-pagination"
+                              ng-click="SetPageSize(50)">50</button>
+                            <button type="button" ng-class="{active:pager.pageSize == 500}" class="btn-pagination"
+                              ng-click="SetPageSize(500)">500</button>
+                          </div>
+                        </li>
+                      </ul>
+                    </li> -->
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3 ng-if="!tbl">{{msg}}</h3>
+      </div>
+    </section>
+  </div>

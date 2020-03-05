@@ -1,4 +1,4 @@
-var app = angular.module("loanreportApp", ['ngExDialog', 'ngRoute', 'webStorageModule', 'toaster']);
+var app = angular.module("loanreportApp", ['ngExDialog','ngRoute','webStorageModule','toaster']);
 
 app.config(['$locationProvider', function ($locationProvider) {
     $locationProvider.hashPrefix('');

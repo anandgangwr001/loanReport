@@ -1,4 +1,4 @@
-app.controller("noSubmitCtrl", function ($scope, personalloandataService, PaginationService, GET_INVOICELIST_SERVICE,$filter) {
+app.controller("rejectedPersonalLoanCtrl", function ($scope, personalloandataService, PaginationService, GET_INVOICELIST_SERVICE,$filter ) {
     $scope.$parent.ShowHeaderMenu = true;
     $scope.pager = {};
     $scope.pegSize = 10;
@@ -23,12 +23,12 @@ app.controller("noSubmitCtrl", function ($scope, personalloandataService, Pagina
     $scope.fromDate = function () {
         fdate = convert($scope.frmDate);
         $scope.isDateReset = false;
-        $scope.accptedPersonalLoan();
+        $scope.rejectedPersonalLoan();
     };
     $scope.toDate = function () {
         tdate = convert($scope.endDate);
         $scope.isDateReset = false;
-        $scope.accptedPersonalLoan();
+        $scope.rejectedPersonalLoan();
     };
 
     $scope.clearFilter = function () {
@@ -43,36 +43,39 @@ app.controller("noSubmitCtrl", function ($scope, personalloandataService, Pagina
         $scope.isDateReset = true;
     };
 
-    $scope.accptedPersonalLoan = function (resetPagination) {
+    $scope.rejectedPersonalLoan = function (resetPagination) {
         if (resetPagination) {
             $scope.CurrentPage = 0;
             $scope.pegSize = 10;
         }
         $scope.dataFilter = {
+            "emp_type": "Salaried",
+            "approval": "R",
             "fromDate": fdate ? fdate : null,
             "toDate": tdate ? tdate : null
         };
-        var url = "http://apiform.webelecreditmanagement.com/nosubmitctrl/nosubmit_user_count";
+        var url = "http://apiform.webelecreditmanagement.com/getdata/user_get_count";
         var mpromise = personalloandataService.getDataCount($scope.dataFilter, url);
         mpromise.then(function (response) {
             if (response.data != null && response.data.totalRecord != null && response.data.status == true) {
                 //CALLING SERVICE FOR SEARCH FILTER
                 $scope.totalCount = response.data.totalRecord;
                 $scope.pager = PaginationService.getPager($scope.totalCount, $scope.CurrentPage, $scope.pegSize);
-                console.log($scope.pager);
-                var mpromise1 = GET_INVOICELIST_SERVICE.nosubmitInvoice($scope.dataFilter, $scope.CurrentPage - 1, $scope.pegSize);
+                var mpromise1 = GET_INVOICELIST_SERVICE.searchInvoice($scope.dataFilter, $scope.CurrentPage - 1, $scope.pegSize);
                 mpromise1.then(function (response) {
                     if (response.data.status == true && response.data.data != null) {
                         $scope.res = response.data.data;
-                    }
-                    $scope.tbl = true;
+                        $scope.tbl = true;
 
-                })
+                    }
+                }).catch(function (err) {
+                    // toastr.error('Error in Search ', +err);
+                });
             } else {
                 $scope.msg = response.data.meassage;
                 $scope.tbl = false;
             }
-        });
+        })
     }
     $scope.setPage = function (page, pageChanged) {
         if (page === "" || page === null) {
@@ -88,7 +91,7 @@ app.controller("noSubmitCtrl", function ($scope, personalloandataService, Pagina
             $scope.CurrentPage = $scope.CurrentPage;
             $scope.pegSize = $scope.pegSize;
         }
-        $scope.accptedPersonalLoan(false);
+        $scope.rejectedPersonalLoan(false);
     }
     $scope.setPage(1);
 });

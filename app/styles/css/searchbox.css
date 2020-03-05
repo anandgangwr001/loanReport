@@ -1,0 +1,10 @@
+
+.searchbox{
+  background-color:#ecf0f1;
+  float: right;
+}
+#searchBox{
+  float: right;
+  margin-right: 45px;
+  padding-top: 25px;
+}
